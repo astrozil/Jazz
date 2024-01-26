@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "116937131335",
+    "project_id": "testjazz-8f447",
+    "storage_bucket": "testjazz-8f447.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116937131335:android:ecd2a897f0bfe634fe3862",
+        "android_client_info": {
+          "package_name": "com.codeforany.music_player"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1AeOOmidYqOMI6NPp74_uEpSvI1MetuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

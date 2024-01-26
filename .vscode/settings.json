@@ -1,0 +1,8 @@
+{
+    "cmake.sourceDirectory": "C:/Users/ASUS/test/linux",
+    "java.project.sourcePaths": [
+        "android"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.dependency.syncWithFolderExplorer": false
+}
