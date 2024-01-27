@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 20.0,
                 ),
                 TitleViewAll(title: "Recently Played", onPressed: () {}),
                 Padding(
