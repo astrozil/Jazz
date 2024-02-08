@@ -82,10 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 TitleViewAll(
                     title: "Albums",
                     onPressed: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return const AlbumScreen();
-                      }));
+                      Get.to(AlbumScreen());
                     }),
                 const SizedBox(
                   height: 20,

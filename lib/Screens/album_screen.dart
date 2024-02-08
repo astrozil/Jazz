@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -24,29 +25,28 @@ class _AlbumScreenState extends State<AlbumScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryIconColor,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              height: 25,
-            ),
             Row(
               children: [
                 SizedBox(
                     width: 50,
                     child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                        },
                         icon: Icon(
                           Icons.arrow_back_ios_new,
-                          color: primaryColor,
+                          color: primaryIconColor,
                         ))),
                 Expanded(
                     child: Center(
                   child: Text(
                     "Albums",
                     style: GoogleFonts.oxygen(
-                        color: primaryColor,
+                        color: primaryIconColor,
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
@@ -55,9 +55,6 @@ class _AlbumScreenState extends State<AlbumScreen> {
                   width: 50,
                 )
               ],
-            ),
-            SizedBox(
-              height: 50,
             ),
             Obx(() => Flexible(
                   child: Container(
@@ -70,21 +67,56 @@ class _AlbumScreenState extends State<AlbumScreen> {
                           physics: const BouncingScrollPhysics(),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
-                                  childAspectRatio: 1,
+                                  childAspectRatio: 0.78,
                                   crossAxisCount: 2,
                                   mainAxisSpacing: 20,
-                                  crossAxisSpacing: 30),
+                                  crossAxisSpacing: 20),
                           itemCount: albumSM.albums.length,
                           itemBuilder: (context, index) {
                             Map item = albumSM.albums[index];
 
-                            return Album(
-                              albumObj: item,
-                              onPressed: () {
-                                Get.to(() => AlbumDetailsScreen(
-                                      albumObj: item,
-                                    ));
-                              },
+                            return Container(
+                              padding: EdgeInsets.only(
+                                  top: 10, left: 10, right: 10, bottom: 20),
+                              decoration: BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: primaryColor,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                              image: AssetImage(item["image"]),
+                                              fit: BoxFit.cover)),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 7,
+                                  ),
+                                  Text(
+                                    item["albumName"],
+                                    style: GoogleFonts.oxygen(
+                                        color: primaryIconColor,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    item["artistName"],
+                                    style: GoogleFonts.oxygen(
+                                      color: primaryIconColor,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             );
                           }),
                     ),
