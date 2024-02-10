@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test/common_widgets/data_collection.dart';
 
 class AllSongsRow extends StatefulWidget {
   final Map songObj;
@@ -37,8 +38,8 @@ class _AllSongsRowState extends State<AllSongsRow> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-                height: width / 7,
-                width: width / 7,
+                height: 50,
+                width: 50,
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: widget.isWeb
@@ -78,7 +79,7 @@ class _AllSongsRowState extends State<AllSongsRow> {
                         child: Text(
                           widget.songObj["name"],
                           style: GoogleFonts.ubuntu(
-                              color: Colors.white,
+                              color: primaryIconColor,
                               fontWeight: FontWeight.bold,
                               fontSize: 15),
                         ),
@@ -86,7 +87,8 @@ class _AllSongsRowState extends State<AllSongsRow> {
                       Text(
                         widget.songObj["artists"],
                         style: GoogleFonts.ubuntu(
-                            color: Colors.white.withOpacity(0.6), fontSize: 12),
+                            color: primaryIconColor.withOpacity(0.8),
+                            fontSize: 12),
                       )
                     ],
                   ),
@@ -98,7 +100,9 @@ class _AllSongsRowState extends State<AllSongsRow> {
                 highlightColor: Colors.transparent,
                 onPressed: widget.onPressedPlay,
                 icon: Image.asset(
-                  "assets/images/allSongsPlay.png",
+                  "assets/images/play_button.png",
+                  color: primaryIconColor,
+                  height: 25,
                 ))
           ],
         ),
