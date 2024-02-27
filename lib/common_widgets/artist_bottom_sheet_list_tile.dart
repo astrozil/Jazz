@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test/common_widgets/data_collection.dart';
 
 class ArtistBottomSheetListTile extends StatelessWidget {
   final String image;
@@ -14,11 +15,11 @@ class ArtistBottomSheetListTile extends StatelessWidget {
         leading: Image.asset(
           image,
           height: 25,
-          color: Colors.white,
+          color: primaryIconColor,
         ),
         title: Text(
           title,
-          style: const TextStyle(color: Colors.white, fontSize: 15),
+          style: TextStyle(color: primaryIconColor, fontSize: 15),
         ),
       ),
     );

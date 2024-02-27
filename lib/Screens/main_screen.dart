@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:test/Screens/home_screen.dart';
-import 'package:test/Screens/setting_screen.dart';
+import 'package:test/Screens/user_screen.dart';
 import 'package:test/Screens/song_screen.dart';
 import 'package:test/common_widgets/drawer_listtile.dart';
 import 'package:test/common_widgets/mini_player.dart';
@@ -57,7 +57,7 @@ class _MainTabScreenState extends State<MainTabScreen>
           TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: tabController,
-              children: const [HomeScreen(), SongScreen(), SettingScreen()]),
+              children: const [HomeScreen(), SongScreen(), UserScreen()]),
           MiniPlayer(),
           AnimatedPositioned(
             left: leftValue,
@@ -210,7 +210,7 @@ class _MainTabScreenState extends State<MainTabScreen>
                               : primaryColor,
                           borderRadius: BorderRadius.circular(30)),
                       child: Image.asset(
-                        "assets/images/collection.png",
+                        "assets/images/user.png",
                         color: selectedTab != 2
                             ? primaryTextColor
                             : primaryIconColor,

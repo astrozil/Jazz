@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: primaryColor,
                             borderRadius: BorderRadius.circular(10)),
                         child: Image.asset(
-                          "assets/images/home_profile.png",
+                          "assets/images/user_profile.png",
                           fit: BoxFit.cover,
                         ),
                       ),

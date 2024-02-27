@@ -9,6 +9,7 @@ import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:test/audio_helpers/page_manager.dart';
 import 'package:test/audio_helpers/service_locator.dart';
+import 'package:test/common_widgets/data_collection.dart';
 
 import '../common_widgets/artist_bottom_sheet_list_tile.dart';
 
@@ -35,10 +36,15 @@ class _PlayScreenState extends State<PlayScreen> {
         Get.back();
       },
       child: Scaffold(
+          backgroundColor: backgroundColor,
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
+            backgroundColor: backgroundColor,
+            elevation: 0,
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
+              icon: Icon(
+                Icons.arrow_back_ios_new_rounded,
+                color: primaryIconColor,
+              ),
               onPressed: () {
                 Get.back();
               },
@@ -46,13 +52,16 @@ class _PlayScreenState extends State<PlayScreen> {
             actions: [
               IconButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.favorite_outline_rounded)),
+                  icon: Icon(
+                    Icons.favorite_outline_rounded,
+                    color: primaryIconColor,
+                  )),
               IconButton(
                   onPressed: () {
                     showModalBottomSheet(
                         enableDrag: true,
                         useSafeArea: true,
-                        backgroundColor: const Color.fromARGB(255, 33, 33, 33),
+                        backgroundColor: backgroundColor,
                         shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(20))),
@@ -63,10 +72,10 @@ class _PlayScreenState extends State<PlayScreen> {
                               Container(
                                 height: 80,
                                 width: double.maxFinite,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                     borderRadius: BorderRadius.vertical(
                                         top: Radius.circular(20)),
-                                    color: Color.fromARGB(255, 40, 40, 40)),
+                                    color: primaryColor),
                                 child: Center(
                                   child: ListTile(
                                       leading:
@@ -107,8 +116,8 @@ class _PlayScreenState extends State<PlayScreen> {
                                           }
                                           return Text(
                                             mediaItem.title,
-                                            style: const TextStyle(
-                                                color: Colors.white,
+                                            style: TextStyle(
+                                                color: primaryIconColor,
                                                 fontSize: 17),
                                           );
                                         },
@@ -119,7 +128,7 @@ class _PlayScreenState extends State<PlayScreen> {
                                         },
                                         child: Image.asset(
                                           "assets/images/cancel.png",
-                                          color: Colors.white,
+                                          color: primaryIconColor,
                                         ),
                                       )),
                                 ),
@@ -145,7 +154,7 @@ class _PlayScreenState extends State<PlayScreen> {
                   },
                   icon: Image.asset(
                     "assets/images/more.png",
-                    color: Colors.white,
+                    color: primaryIconColor,
                   ))
             ],
           ),
@@ -191,8 +200,8 @@ class _PlayScreenState extends State<PlayScreen> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       mediaItem.title,
-                      style: GoogleFonts.biryani(
-                          color: Colors.white, fontSize: 25),
+                      style: GoogleFonts.oxygen(
+                          color: primaryIconColor, fontSize: 25),
                     ),
                   ),
                 ),
@@ -202,8 +211,8 @@ class _PlayScreenState extends State<PlayScreen> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       mediaItem.artist!,
-                      style:
-                          GoogleFonts.biryani(color: Colors.grey, fontSize: 15),
+                      style: GoogleFonts.oxygen(
+                          color: primaryTextColor, fontSize: 15),
                     ),
                   ),
                 ),
@@ -231,8 +240,8 @@ class _PlayScreenState extends State<PlayScreen> {
                                   valueState.total.inMilliseconds.toDouble()) +
                               0.0000000001,
                           value: value,
-                          activeColor: Colors.white.withOpacity(0.7),
-                          inactiveColor: Colors.white.withOpacity(0.4),
+                          activeColor: primaryIconColor,
+                          inactiveColor: primaryColor,
                           onChanged: (dynamic value) {
                             if (!dragging) {
                               dragging = true;
@@ -264,14 +273,14 @@ class _PlayScreenState extends State<PlayScreen> {
                                       .firstMatch('${valueState.current}')
                                       ?.group(1) ??
                                   '${valueState.current}',
-                              style: const TextStyle(color: Colors.white),
+                              style: TextStyle(color: primaryIconColor),
                             ),
                             Text(
                               RegExp(r'((^0*[1-9]\d*:)?\d{2}:\d{2})\.\d+$')
                                       .firstMatch('${valueState.total}')
                                       ?.group(1) ??
                                   '${valueState.total}',
-                              style: const TextStyle(color: Colors.white),
+                              style: TextStyle(color: primaryIconColor),
                             )
                           ],
                         ));
@@ -288,6 +297,7 @@ class _PlayScreenState extends State<PlayScreen> {
                             child: Image.asset(
                               "assets/images/backward_button.png",
                               height: 40,
+                              color: primaryIconColor,
                             ));
                       },
                     ),
@@ -305,10 +315,12 @@ class _PlayScreenState extends State<PlayScreen> {
                                 ? Image.asset(
                                     "assets/images/pause_button.png",
                                     height: 50,
+                                    color: primaryIconColor,
                                   )
                                 : Image.asset(
                                     "assets/images/play_button.png",
                                     height: 50,
+                                    color: primaryIconColor,
                                   ));
                       },
                     ),
@@ -323,6 +335,7 @@ class _PlayScreenState extends State<PlayScreen> {
                             child: Image.asset(
                               "assets/images/forward_button.png",
                               height: 40,
+                              color: primaryIconColor,
                             ));
                       },
                     ),
